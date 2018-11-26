@@ -1,0 +1,27 @@
+import { ChatService } from './services/chat.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { ConfigModalComponent } from './components/config-modal/config-modal.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomePageComponent,
+    ChatComponent,
+    ConfigModalComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpModule
+  ],
+  providers: [ChatService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
