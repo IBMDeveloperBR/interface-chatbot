@@ -26,6 +26,9 @@ import { ConfigModalComponent } from './components/config-modal/config-modal.com
     AppRoutingModule,
     HttpModule,
   ],
+  entryComponents: [
+    ConfigModalComponent
+  ],
   providers: [ChatService],
   bootstrap: [AppComponent]
 })

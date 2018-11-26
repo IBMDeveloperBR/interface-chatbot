@@ -2,13 +2,13 @@
     <div class="message">
       <p>Clique aqui para começar a conversar</p>
     </div>  
-    <button mat-fab id="open-chat-btn" (click)='openChat = !openChat'>
+    <button mat-fab id="open-chat-btn" (click)='openChat = !openChat' matTooltip="Abrir chat">
       <mat-icon>chat</mat-icon>
     </button>
 </section>
 
 <section class="opened" [style.visibility]="openChat ? 'visible' : 'hidden'">
-  <div class="title" (click)='openChat = !openChat'>
+  <div class="title" (click)='openChat = !openChat' matTooltip="Fechar Chat">
     <h3>Watson Assistant</h3>
   </div>
   <div class="body" >
