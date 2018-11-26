@@ -1,8 +1,11 @@
+import { MaterialModule } from './app-material.module';
 import { ChatService } from './services/chat.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
@@ -18,8 +21,10 @@ import { ConfigModalComponent } from './components/config-modal/config-modal.com
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [ChatService],
   bootstrap: [AppComponent]

@@ -1,3 +1,24 @@
-<p>
-  chat works!
-</p>
+<section class="closed" [style.visibility]="!openChat ? 'visible' : 'hidden'">
+    <div class="message">
+      <p>Clique aqui para começar a conversar</p>
+    </div>  
+    <button mat-fab id="open-chat-btn" (click)='openChat = !openChat'>
+      <mat-icon>chat</mat-icon>
+    </button>
+</section>
+
+<section class="opened" [style.visibility]="openChat ? 'visible' : 'hidden'">
+  <div class="title" (click)='openChat = !openChat'>
+    <h3>Watson Assistant</h3>
+  </div>
+  <div class="body" >
+    <div *ngFor='let message of chatHistory' [class.message]='!message.bot' [class.message-bot]='message.bot' style="margin-top: 10px">
+      <span>{{message.text}}</span>
+    </div>
+  </div>
+  <mat-form-field class="input-area">
+    <input matInput type="text">
+    <mat-placeholder class="placeholder">Coloque sua mensagem aqui...</mat-placeholder>
+  </mat-form-field>
+
+</section>
