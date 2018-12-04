@@ -23,6 +23,9 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.initChat();
+    setTimeout(() => {
+      this.moveScroll();
+    }, 1000);
   }
 
   initChat() {
@@ -56,12 +59,14 @@ export class ChatComponent implements OnInit {
       }
     );
     this.message = '';
-    this.moveScroll();
   }
 
   moveScroll() {
     const chatDiv = document.getElementsByClassName('body').item(0);
-    chatDiv.scrollTop = 1000;
+    chatDiv.scrollTop = chatDiv.scrollHeight;
+    setTimeout(() => {
+      this.moveScroll();
+    }, 1000);
   }
 
 }
