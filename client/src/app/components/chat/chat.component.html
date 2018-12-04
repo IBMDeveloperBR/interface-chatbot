@@ -17,7 +17,7 @@
     </div>
   </div>
   <mat-form-field class="input-area">
-    <input matInput type="text">
+    <input matInput type="text" (keyup.enter)="sendMessage()" [(ngModel)]="message" [ngModelOptions]="{standalone: true}">
     <mat-placeholder class="placeholder">Coloque sua mensagem aqui...</mat-placeholder>
   </mat-form-field>
 

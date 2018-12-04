@@ -29,7 +29,6 @@ const assistant = {
       input: { text: msg },
       context: ctx,
     };
-    console.log(req);
     return new Promise((resolve, reject) => {
       // envia a messagem com Assistant
       assistantClient.message(req, (err, resp) => {

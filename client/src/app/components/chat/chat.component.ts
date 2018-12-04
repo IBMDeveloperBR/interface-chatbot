@@ -13,7 +13,13 @@ export class ChatComponent implements OnInit {
 
   constructor(
     public chatService: ChatService
-  ) { }
+  ) {
+    this.chatService.setNewValue.subscribe((status) => {
+      if (status) {
+        this.initChat();
+      }
+    });
+  }
 
   ngOnInit() {
     this.initChat();
@@ -22,25 +28,40 @@ export class ChatComponent implements OnInit {
   initChat() {
     this.chatHistory = [];
     this.message = '';
-    this.sendMessage(this.message);
+    this.chatService.setCtx({});
+    this.sendMessage();
   }
 
-  sendMessage(msg) {
+  sendMessage() {
     const myMsg = {
       bot: false,
-      text: msg,
+      text: this.message,
     };
-    if (msg !== '') {
+    if (this.message !== '') {
       this.chatHistory.push(myMsg);
     }
-    this.chatService.callWatson(msg).subscribe((res) => {
-      this.chatService.setCtx(res.context);
-      this.chatHistory.push({
-        bot: true,
-        text: res.output.text.join('\n')
-      });
-    });
+    this.chatService.callWatson(this.message).subscribe(
+      (res) => {
+        this.chatService.setCtx(res.context);
+        this.chatHistory.push({
+          bot: true,
+          text: res.output.text.join('\n')
+        });
+      },
+      (err) => {
+        this.chatHistory.push({
+          bot: true,
+          text: 'Ops... Algo deu errado...\nReveja as credenciais na configuração!'
+        });
+      }
+    );
     this.message = '';
+    this.moveScroll();
+  }
+
+  moveScroll() {
+    const chatDiv = document.getElementsByClassName('body').item(0);
+    chatDiv.scrollTop = 1000;
   }
 
 }

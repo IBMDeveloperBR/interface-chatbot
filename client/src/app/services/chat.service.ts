@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
-import { pipe } from 'rxjs';
+import { pipe, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,7 @@ import { pipe } from 'rxjs';
 export class ChatService {
   private credentials = null;
   private ctx = {};
+  public setNewValue = new BehaviorSubject <boolean>(false);
 
   constructor(
     private http: Http
@@ -16,6 +17,7 @@ export class ChatService {
 
   setCredentials(credentials) {
     this.credentials = credentials;
+    this.setNewValue.next(true);
   }
 
   setCtx(ctx) {

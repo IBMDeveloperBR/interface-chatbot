@@ -5,7 +5,7 @@ module.exports = (msg, ctx, credentials) => {
   let assistantClient;
 
   // Autenticacao no Assistant
-  if (credentials.ASSISTANT_APIKEY) {
+  if (credentials.apiKey) {
     /** ******  NOVA AUTENTICAÇÃO PARA NOVAS INSTANCIAS  ******** */
     assistantClient = new Assistant({
       iam_apikey: credentials.ASSISTANT_APIKEY,
@@ -13,15 +13,15 @@ module.exports = (msg, ctx, credentials) => {
     });
   } else {
     assistantClient = new Assistant({
-      username: credentials.ASSISTANT_USERNAME,
-      password: credentials.ASSISTANT_PASSWORD,
+      username: credentials.username,
+      password: credentials.password,
       version: '2018-07-10',
     });
   }
 
   // Ligacao com workspace e montagem dos parametros de requisicao
   const req = {
-    workspace_id: credentials.ASSISTANT_WORKSPACE,
+    workspace_id: credentials.workspaceId,
     input: { text: msg },
     context: ctx || null,
   };

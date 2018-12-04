@@ -35,7 +35,7 @@
 		padding: 5%;
 	}
 	transform: translateY(300px);
-	animation: yTranslateAnimation 1s forwards 1.5s ease-in-out;
+	animation: yTranslateAnimation 1s forwards 0s ease-in-out;
 }
 
 .message:after{
@@ -70,6 +70,7 @@
 	margin-right: 2%;
 	animation: yTranslateAnimation 1.5s forwards 0s ease-in;
 	position: relative;
+	scroll-behavior: smooth;
 	.title{
 		color: white;
 		text-align: center;
@@ -83,7 +84,7 @@
 		position: relative;
     	z-index: -1;
 		display: block;
-		padding-bottom: 80px;
+		padding-bottom: 10vh;
 		max-height: 80vh;
 		overflow: scroll;
 		.message{
@@ -119,6 +120,7 @@
 		margin-left: 2%;
 		margin-right: 2%;
 		width: 96%;
+		color: white;
 	}
 }
 
@@ -140,7 +142,7 @@
 		padding: 5%;
 	}
 	transform: translateY(300px);
-	animation: yTranslateAnimation 1s forwards 1.5s ease-in-out;
+	animation: yTranslateAnimation 1s forwards 0s ease-in-out;
 }
 .message-bot:after{
     content: "";
