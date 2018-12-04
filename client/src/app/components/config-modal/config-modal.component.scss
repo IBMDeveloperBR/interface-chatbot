@@ -1,0 +1,28 @@
+section {
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+}
+mat-tab-group {
+    width: 100%;
+}
+h4{
+    margin-bottom: 15%;
+}
+mat-radio-button{
+    margin-right: 5%;
+}
+
+mat-form-field{
+    margin-top: 10px;
+    width: 100%;
+}
+
+button{
+    display: block;
+    float: right;
+    color: white;
+    font-size: 17px;
+    margin-top: 3%;
+    margin-left: 1%;
+}

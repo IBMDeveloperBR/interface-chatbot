@@ -1,3 +1,25 @@
-<p>
-  config-modal works!
-</p>
+<section>
+  <mat-tab-group>
+    <mat-tab label="Watson Assistant">
+      <form>
+        <mat-form-field>
+          <input matInput placeholder="Worspace ID" [(ngModel)]="settings.workspaceId" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-form-field *ngIf="!isUsernameAndPassword">
+          <input matInput placeholder="API Key" [(ngModel)]="settings.apiKey" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-checkbox [(ngModel)]="isUsernameAndPassword" [ngModelOptions]="{standalone: true}">Habilitar Username e Password</mat-checkbox>
+        <mat-form-field *ngIf="isUsernameAndPassword">
+          <input matInput placeholder="Username" [(ngModel)]="settings.username" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-form-field *ngIf="isUsernameAndPassword">
+          <input matInput placeholder="Password" [(ngModel)]="settings.password" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="close(true)">Carregar Bot</button>
+        <button mat-raised-button color="primary" (click)="close(false)">Cancelar</button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+
+</section>
+  

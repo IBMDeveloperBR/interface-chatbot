@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ConfigModalComponent } from './components/config-modal/config-modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ConfigModalComponent } from './components/config-modal/config-modal.com
     MaterialModule,
     AppRoutingModule,
     HttpModule,
+    FormsModule
   ],
   entryComponents: [
     ConfigModalComponent
