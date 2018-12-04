@@ -7,7 +7,7 @@ import { pipe } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
-  private credentials = {};
+  private credentials = null;
   private ctx = {};
 
   constructor(
@@ -28,7 +28,7 @@ export class ChatService {
       ctx: this.ctx,
       credentials: this.credentials
     };
-    return this.http.post(`/message`, body)
+    return this.http.post(`/api/message`, body)
       .pipe(
         map((res) => {
           return res.json();

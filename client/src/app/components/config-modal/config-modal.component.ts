@@ -30,13 +30,13 @@ export class ConfigModalComponent implements OnInit {
     // remove fields based on conection type
     if (this.isUsernameAndPassword) {
       delete this.settings.apiKey;
-      if (!this.settings.username || !this.settings.password || !this.settings.workspaceId){
+      if (!this.settings.username || !this.settings.password || !this.settings.workspaceId) {
         isValidForm = false;
       }
     } else {
       delete this.settings.username;
       delete this.settings.password;
-      if (!this.settings.apiKey || !this.settings.workspaceId){
+      if (!this.settings.apiKey || !this.settings.workspaceId) {
         isValidForm = false;
       }
     }

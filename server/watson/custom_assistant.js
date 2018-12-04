@@ -22,7 +22,7 @@ module.exports = (msg, ctx, credentials) => {
   // Ligacao com workspace e montagem dos parametros de requisicao
   const req = {
     workspace_id: credentials.ASSISTANT_WORKSPACE,
-    input: msg,
+    input: { text: msg },
     context: ctx || null,
   };
   return new Promise((resolve, reject) => {

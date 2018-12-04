@@ -26,9 +26,10 @@ const assistant = {
     // Ligacao com workspace e montagem dos parametros de requisicao
     const req = {
       workspace_id: process.env.ASSISTANT_WORKSPACE,
-      input: msg,
-      context: ctx || null,
+      input: { text: msg },
+      context: ctx,
     };
+    console.log(req);
     return new Promise((resolve, reject) => {
       // envia a messagem com Assistant
       assistantClient.message(req, (err, resp) => {

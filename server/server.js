@@ -45,13 +45,15 @@ if (ENV === 'production') {
 // Rota que recebe a mensagem do front e retorna a resposta do assistant
 app.post('/message', (req, res, next) => {
   if (req.body.credentials) {
+    console.log(req.body.credentials);
     watson.custom_assistant(req.body.msg, req.body.ctx, req.body.credentials)
       .then(data => res.json(data))
       .catch(err => next({ err, msg: 'Erro no request ao custom assistant', status: 500 }));
   } else {
+    console.log(req.body);
     watson.default_assistant.message(req.body.msg, req.body.ctx)
       .then(data => res.json(data))
-      .catch(err => next({ err, msg: 'Erro no request ao custom assistant', status: 500 }));
+      .catch(err => next({ err, msg: 'Erro no request ao default assistant', status: 500 }));
   }
 });
 

@@ -1,3 +1,4 @@
+import { ChatService } from './../../services/chat.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ConfigModalComponent } from '../config-modal/config-modal.component';
@@ -10,7 +11,8 @@ import { ConfigModalComponent } from '../config-modal/config-modal.component';
 export class HomePageComponent implements OnInit {
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public chatSetvice: ChatService
   ) { }
 
   ngOnInit() {
@@ -22,7 +24,9 @@ export class HomePageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if (result) {
+        this.chatSetvice.setCredentials(result);
+      }
     });
   }
 }
