@@ -163,6 +163,13 @@
     left: 20%;
 }
 
+.mat-focused .mat-form-field-label {
+	color: #5cb53f !important;
+}
+	
+.mat-form-field-ripple {
+	background-color: #5cb53f !important;
+}
 @media only screen and (max-width: 1193px) {
     .opened{
 		width: 50%;
