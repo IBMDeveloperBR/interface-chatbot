@@ -32,23 +32,32 @@ export class ChatComponent implements OnInit {
     this.chatHistory = [];
     this.message = '';
     this.chatService.setCtx({});
-    this.sendMessage();
+    this.sendMessage(this.message);
   }
 
-  sendMessage() {
+  sendMessage(msg) {
     const myMsg = {
       bot: false,
-      text: this.message,
+      text: msg,
+      type: 'text'
     };
-    if (this.message !== '') {
+    if (msg !== '') {
       this.chatHistory.push(myMsg);
     }
-    this.chatService.callWatson(this.message).subscribe(
+    this.chatService.callWatson(msg).subscribe(
       (res) => {
         this.chatService.setCtx(res.context);
-        this.chatHistory.push({
-          bot: true,
-          text: res.output.text.join('\n')
+        res.output.generic.forEach(element => {
+          const newMsg = {
+            bot: true,
+            type: element.response_type,
+            title: element.title || null,
+            text: element.text || null,
+            buttons: element.options || null,
+            img: element.source || null,
+            description: element.description || null,
+          };
+          this.chatHistory.push(newMsg);
         });
       },
       (err) => {
