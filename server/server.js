@@ -23,7 +23,7 @@ app.use(helmet.xssFilter());
 app.disable('x-powered-by');
 
 // Point static path to dist
-app.use(express.static(path.join(__dirname, '../public'))); // load UI from public folder
+app.use(express.static(path.join(__dirname, '../client/dist/client/')));
 
 // body-parser config
 app.use(bodyParser.json());
@@ -43,7 +43,7 @@ if (ENV === 'production') {
 }
 
 // Rota que recebe a mensagem do front e retorna a resposta do assistant
-app.post('/message', (req, res, next) => {
+app.post('/api/message', (req, res, next) => {
   if (req.body.credentials) {
     watson.custom_assistant(req.body.msg, req.body.ctx, req.body.credentials)
       .then(data => res.json(data))
@@ -53,6 +53,11 @@ app.post('/message', (req, res, next) => {
       .then(data => res.json(data))
       .catch(err => next({ err, msg: 'Erro no request ao default assistant', status: 500 }));
   }
+});
+
+// Call Angular
+app.all('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/client/index.html'));
 });
 
 // Error handler
