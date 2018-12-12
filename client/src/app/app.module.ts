@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PrettyJsonModule} from 'angular2-prettyjson';
+import { CoolStorageModule } from '@angular-cool/storage';
 
 
 import { AppComponent } from './app.component';
@@ -30,7 +31,8 @@ import { JsonOutputComponent } from './components/json-output/json-output.compon
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    PrettyJsonModule
+    PrettyJsonModule,
+    CoolStorageModule
   ],
   entryComponents: [
     ConfigModalComponent

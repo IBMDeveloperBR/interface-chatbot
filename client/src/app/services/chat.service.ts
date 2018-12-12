@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { CoolLocalStorage } from '@angular-cool/storage';
 import { map } from 'rxjs/operators';
 import { pipe, BehaviorSubject } from 'rxjs';
 
@@ -13,11 +14,13 @@ export class ChatService {
   public outputAssistant = new BehaviorSubject <Object>(null);
 
   constructor(
-    private http: Http
+    private http: Http,
+    private localStorage: CoolLocalStorage
   ) { }
 
   setCredentials(credentials) {
     this.credentials = credentials;
+    this.localStorage.setObject('credentials', credentials);
     this.setNewValue.next(true);
   }
 
@@ -26,6 +29,9 @@ export class ChatService {
   }
 
   callWatson(msg) {
+    if (!this.credentials) {
+      this.credentials = this.localStorage.getObject('credentials');
+    }
     const body = {
       msg: msg,
       ctx: this.ctx,
@@ -34,6 +40,9 @@ export class ChatService {
     return this.http.post(`/api/message`, body)
       .pipe(
         map((res) => {
+          if (res.json().credentials) {
+            this.setCredentials(res.json().credentials);
+          }
           this.outputAssistant.next(res.json());
           return res.json();
         })

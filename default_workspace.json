@@ -1,0 +1,358 @@
+{
+  "name": "Chatbot Linker",
+  "intents": [],
+  "entities": [
+    {
+      "entity": "negativa",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "não",
+          "synonyms": [
+            "nunca",
+            "agora nao",
+            "nao quero",
+            "impossivel"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "positiva",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "sim",
+          "synonyms": [
+            "claro",
+            "logico"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "language": "pt-br",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Get Username",
+      "output": {
+        "text": {
+          "values": [
+            "Excelente. Já registrei seu Username. Agora me informe o Password da sua instancia Watson Assistant:"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_2_1544627282174",
+      "context": {
+        "username": "<? input.text.trim() ?>"
+      },
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_3_1544627345322"
+    },
+    {
+      "type": "standard",
+      "title": "Get Workspace/Skill",
+      "output": {
+        "text": {
+          "values": [
+            "Pronto. Confirmar bot: Username: $username, Password: $password, Workspace: $workspaceId   ?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_4_1544627513025",
+      "context": {
+        "workspaceId": "<? $workspaceId ? $workspaceId : input.text.trim() ?>"
+      },
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_5_1544627607739"
+    },
+    {
+      "type": "standard",
+      "title": "Resposta Padrão",
+      "output": {
+        "text": {
+          "values": [
+            "Não entendi essa resposta... Tente responder sim ou não."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_5_1544627607739",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1544627607739"
+      },
+      "conditions": "true",
+      "dialog_node": "node_8_1544627846489",
+      "previous_sibling": "node_7_1544627799384"
+    },
+    {
+      "type": "standard",
+      "title": "Cancelar aplicação do bot",
+      "output": {
+        "text": {
+          "values": [
+            "Que pena, cancelando operação..."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_5_1544627607739",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Bem-vindo"
+      },
+      "conditions": "@negativa",
+      "dialog_node": "node_7_1544627799384",
+      "previous_sibling": "node_6_1544627756479"
+    },
+    {
+      "type": "standard",
+      "title": "Confirmar aplicação do bot",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_5_1544627607739",
+      "context": {
+        "setCredentials": true
+      },
+      "metadata": {},
+      "conditions": "@positiva",
+      "dialog_node": "node_6_1544627756479"
+    },
+    {
+      "type": "standard",
+      "title": "Username/Password",
+      "output": {
+        "text": {
+          "values": [
+            "Ótimo... Me informe qual o Username da sua instancia do Watson Assistant:"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "Bem-vindo",
+      "metadata": {},
+      "conditions": "@negativa",
+      "dialog_node": "node_2_1544627282174",
+      "previous_sibling": "node_1_1544627272177"
+    },
+    {
+      "type": "standard",
+      "title": "API Key",
+      "output": {
+        "text": {
+          "values": [
+            "Ótimo... Me informe qual é sua ApiKey do Watson Assistant:"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "Bem-vindo",
+      "metadata": {},
+      "conditions": "@positiva",
+      "dialog_node": "node_1_1544627272177"
+    },
+    {
+      "type": "standard",
+      "title": "Get WorkspaceId",
+      "output": {
+        "text": {
+          "values": [
+            "Pronto. Confirmar bot: ApiKey: $apiKey, Workspace: $workspaceId   ?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_9_1544629674786",
+      "context": {
+        "workspaceId": "<? $workspaceId ? $workspaceId : input.text.trim() ?>"
+      },
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_10_1544629733644"
+    },
+    {
+      "type": "standard",
+      "title": "Get ApiKey",
+      "output": {
+        "text": {
+          "values": [
+            "Ótimo, já registrei sua ApiKey. Me informe agora seu Skill Id ou Workspace Id:"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1544627272177",
+      "context": {
+        "apiKey": "<? input.text.trim() ?>"
+      },
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_9_1544629674786"
+    },
+    {
+      "type": "standard",
+      "title": "Get Password",
+      "output": {
+        "text": {
+          "values": [
+            "Estamos quase lá... Me informe agora seu Workspace ID ou Skill Id:"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_3_1544627345322",
+      "context": {
+        "password": "<? input.text.trim() ?>"
+      },
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_4_1544627513025"
+    },
+    {
+      "type": "standard",
+      "title": "Resposta padrão",
+      "output": {
+        "text": {
+          "values": [
+            "Não entendi essa resposta... Tente responder sim ou não."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_10_1544629733644",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_10_1544629733644"
+      },
+      "conditions": "true",
+      "dialog_node": "node_13_1544629904009",
+      "previous_sibling": "node_12_1544629868036"
+    },
+    {
+      "type": "standard",
+      "title": "Cancelar aplicação do bot",
+      "output": {
+        "text": {
+          "values": [
+            "Que pena, cancelando operação..."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_10_1544629733644",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Bem-vindo"
+      },
+      "conditions": "@negativa",
+      "dialog_node": "node_12_1544629868036",
+      "previous_sibling": "node_11_1544629830460"
+    },
+    {
+      "type": "standard",
+      "title": "Confirmar Aplicação do Bot",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_10_1544629733644",
+      "context": {
+        "setCredentials": true
+      },
+      "metadata": {},
+      "conditions": "@positiva",
+      "dialog_node": "node_11_1544629830460"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "text": {
+          "values": [
+            "Eu não entendi. Você pode tentar reformular a frase.",
+            "Você pode reformular sua afirmação? Eu não estou entendendo.",
+            "Eu não entendi o sentido."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "title": "Olá. Voce vai usar API Key?",
+            "options": [
+              {
+                "label": "Sim vou usar",
+                "value": {
+                  "input": {
+                    "text": "sim"
+                  }
+                }
+              },
+              {
+                "label": "Não vou usar Username/Password",
+                "value": {
+                  "input": {
+                    "text": "nao"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "context": {
+        "apiKey": null,
+        "password": null,
+        "username": null,
+        "workspaceId": null,
+        "setCredentials": false
+      },
+      "metadata": {},
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    }
+  ],
+  "workspace_id": "717eceac-36f6-409a-bcba-f0ca8967f640",
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "status": "Available"
+}

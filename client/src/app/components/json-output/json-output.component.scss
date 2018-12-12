@@ -24,3 +24,9 @@ pre{
 pre span {
     white-space: normal;
 }
+
+@media only screen and (max-width: 780px) {
+    section{
+		display: none;
+	}
+}

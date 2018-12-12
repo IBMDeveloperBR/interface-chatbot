@@ -1,5 +1,5 @@
 <section class="closed" [style.visibility]="!openChat ? 'visible' : 'hidden'">
-    <div class="message">
+    <div class="message" id="message-closed-chat">
       <p>Clique aqui para começar a conversar</p>
     </div>  
     <button mat-fab id="open-chat-btn" (click)='openChat = !openChat' matTooltip="Abrir chat">

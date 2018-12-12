@@ -8,7 +8,7 @@ module.exports = (msg, ctx, credentials) => {
   if (credentials.apiKey) {
     /** ******  NOVA AUTENTICAÇÃO PARA NOVAS INSTANCIAS  ******** */
     assistantClient = new Assistant({
-      iam_apikey: credentials.ASSISTANT_APIKEY,
+      iam_apikey: credentials.apiKey,
       version: '2018-07-10',
     });
   } else {

@@ -35,7 +35,16 @@ const assistant = {
         if (err) {
           reject(err);
         } else {
-          resolve(resp);
+          const result = resp;
+          if (result.context.setCredentials) {
+            result.credentials = {
+              username: resp.context.username || null,
+              password: resp.context.password || null,
+              apiKey: resp.context.apiKey || null,
+              workspaceId: resp.context.workspaceId || null,
+            };
+          }
+          resolve(result);
         }
       });
     });

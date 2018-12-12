@@ -22,7 +22,8 @@
 	border-color: #4B4453;
     border-radius: 15px;
     width: inherit;
-    height: auto;
+	height: auto;
+	animation: yTranslateAnimation 1s forwards 0s ease-in-out;	
 
 	position: relative;
 	display: block;
@@ -35,7 +36,6 @@
 		padding: 5%;
 	}
 	transform: translateY(300px);
-	animation: yTranslateAnimation 1s forwards 0s ease-in-out;
 }
 
 .message:after{
@@ -48,6 +48,10 @@
     border-top: 20px solid #4B4453;
     bottom: -17px;
     left: 70%;
+}
+
+#message-closed-chat{
+	animation: yTranslateAnimation 1s forwards 0s ease-in-out;
 }
 
 @keyframes yTranslateAnimation{
@@ -69,6 +73,7 @@
 	margin-left: 68%;
 	margin-right: 2%;
 	animation: yTranslateAnimation 1.5s forwards 0s ease-in;
+	transition: visibility 0s linear 0.33s, opacity 0.33s linear;
 	position: relative;
 	scroll-behavior: smooth;
 	.title{
