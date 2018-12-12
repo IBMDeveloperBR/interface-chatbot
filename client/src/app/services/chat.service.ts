@@ -10,6 +10,7 @@ export class ChatService {
   private credentials = null;
   private ctx = {};
   public setNewValue = new BehaviorSubject <boolean>(false);
+  public outputAssistant = new BehaviorSubject <Object>(null);
 
   constructor(
     private http: Http
@@ -33,6 +34,7 @@ export class ChatService {
     return this.http.post(`/api/message`, body)
       .pipe(
         map((res) => {
+          this.outputAssistant.next(res.json());
           return res.json();
         })
       );

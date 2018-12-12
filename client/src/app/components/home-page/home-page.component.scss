@@ -1,6 +1,7 @@
 section{
     min-width: 100%;
     min-height: 100vh;
+    max-width: 100vh;
     background-image: linear-gradient(to left bottom, #845ec2, #7658a5, #685189, #5a4b6d, #4b4453);
 }
 
@@ -11,4 +12,12 @@ section{
     margin-left: 15px;
     margin-top: 15px;
     z-index: 10;
+}
+
+app-json-output {
+    width: 40%;
+}
+
+app-chat {
+    width: 60%;
 }

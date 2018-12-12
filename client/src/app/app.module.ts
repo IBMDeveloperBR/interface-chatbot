@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PrettyJsonModule} from 'angular2-prettyjson';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ConfigModalComponent } from './components/config-modal/config-modal.component';
 import { FormsModule } from '@angular/forms';
+import { JsonOutputComponent } from './components/json-output/json-output.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     HomePageComponent,
     ChatComponent,
     ConfigModalComponent,
+    JsonOutputComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    PrettyJsonModule
   ],
   entryComponents: [
     ConfigModalComponent
