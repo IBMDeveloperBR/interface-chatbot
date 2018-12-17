@@ -1,8 +1,5 @@
 # interface-chatbot
 
-### Deploy IBM Cloud
-[![Deploy Watson Assistant](https://bluemix.net/deploy/button.png)](https://console.bluemix.net/devops/setup/deploy?repository=https://github.com/ibm-developer-br/interface-chatbot)
-
 ## Deploy da página Web
 
 Neste momento subiremos uma aplicação Web para linkar a nossa API de Chatbot.
@@ -27,12 +24,12 @@ Quando a aplicação estiver pronta, você poderá clicar no link conforme abaix
 Por último, teremos que linkar as nossas credenciais, no front end. Para isso clique na "engrenagem" à esquerda:
 
 ### 14.Abrir a aba de configuração do Bot (engrenagem)
-![Credenciais](https://github.com/ibm-developer-br/interface-chatbot/raw/master/print/tutorial-chatbot-18.png)
+![Credenciais](https://github.com/ibm-developer-br/interface-chatbot/raw/master/print/tutorial-chatbot-19.png)
 
 E adicione as credenciais que copiamos lá no ítem 9, lembrando que por padrão a interface solicita uma API Key, caso tenha usermane/password basta marcar o checkbox para usar esse tipo de autenticação:
 
 ### 15. Substituir as credenciais
-![Credenciais2](https://github.com/ibm-developer-br/interface-chatbot/raw/master/print/tutorial-chatbot-19.png)
+![Credenciais2](https://github.com/ibm-developer-br/interface-chatbot/raw/master/print/tutorial-chatbot-18.png)
 
 Voce também pode usar o bot default para configurar seu bot nessa página, basta seguir o passos durante a conversa com o bot:
 
