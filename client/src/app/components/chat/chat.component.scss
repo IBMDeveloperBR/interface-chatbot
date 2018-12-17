@@ -76,6 +76,7 @@
 	transition: visibility 0s linear 0.33s, opacity 0.33s linear;
 	position: relative;
 	scroll-behavior: smooth;
+	background-color: white;
 	.title{
 		color: white;
 		text-align: center;
@@ -132,7 +133,7 @@
 		margin-left: 2%;
 		margin-right: 2%;
 		width: 96%;
-		color: white;
+		color: #4B4453;
 	}
 }
 
@@ -168,13 +169,6 @@
     left: 20%;
 }
 
-.mat-focused .mat-form-field-label {
-	color: #5cb53f !important;
-}
-	
-.mat-form-field-ripple {
-	background-color: #5cb53f !important;
-}
 @media only screen and (max-width: 1193px) {
     .opened{
 		width: 50%;
