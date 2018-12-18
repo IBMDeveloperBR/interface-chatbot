@@ -6,34 +6,34 @@ Neste momento subiremos um workspace no Watson Assistant, isto é, um chatbot co
 ### 1. [![Deploy Watson Assistant](https://bluemix.net/deploy/button.png)](https://console.bluemix.net/devops/setup/deploy?repository=https://github.com/victorshinya/chatbot-deployer&chatbotName=Chatbot&chatbotWorkspaceURL=https://github.com/victorshinya/chatbot-deployer/raw/master/data/workspace.json)
 
 ### 2. Deploy do Workspace. Aqui você deve clicar no quadrado do *Delivery Pipeline* e criar a sua API-KEY.
-![Deploy Watson Assistant Workspace](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-01.02.png)
-![Deploy Watson Assistant Workspace](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-01.03.png)
-![Deploy Watson Assistant Workspace](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-01.04.png)
+![Deploy Watson Assistant Workspace](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-01.02.png)
+![Deploy Watson Assistant Workspace](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-01.03.png)
+![Deploy Watson Assistant Workspace](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-01.04.png)
 
 ### 3. Abrir o Delivery Pipeline
-![Delivery Pipeline](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-02.02.png)
+![Delivery Pipeline](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-02.02.png)
 
 ### 4.Neste passo, veja se o seu deploy foi realizado, isto é, o deploy está em modo "stage passed". Se estiver como "stage not run", você deve apenas dar um play na esteira de devops conforme abaixo:
-![Deploy Watson Assistant Workspace](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-02.04.png)
+![Deploy Watson Assistant Workspace](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-02.04.png)
 
 Uma vez que seu sistema estiver em modo "stage passed", clique no ícone IBM Cloud para acessar o dashboard com serviços criados:
 
 ### 5. IBM Cloud Dashboard
-![Dashboard Bot Asset Exchange Workspaces](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-03.png)
+![Dashboard Bot Asset Exchange Workspaces](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-03.png)
 
 Dentro do Toolkit do Watson Assistant criado, devemos pegar as credenciais da API. Siga as passos abaixo
 
 ### 6. Abrindo o Toolkit do Assistant
-![Watson Assistant Toolkit](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-05.png)
+![Watson Assistant Toolkit](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-05.png)
 
 ### 7. Abrir a aba de Skills
-![Launch Tool](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-04.png)
+![Launch Tool](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-04.png)
 
 ### 8. Selecionar o Skill da Pizzaria
-![Workspaces](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-22.png)
+![Workspaces](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-22.png)
 
 ### 9. Ir na de credenciais da API nas opções:
-![Credentials](https://github.com/ibm-developer-br/interface-chabot/raw/master/print/tutorial-chatbot-23.png)
+![Credentials](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-23.png)
 
 Deixe esta página aberta pois futuramente copiaremos o "Workspace ID","Username" e "Password" ou "Api Key" para deploy da página Web.
 
