@@ -32,7 +32,7 @@ Dentro do Toolkit do Watson Assistant criado, devemos pegar as credenciais da AP
 ### 8. Selecionar o Skill da Pizzaria
 ![Workspaces](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-22.png)
 
-### 9. Ir na de credenciais da API nas opções:
+### 9. Selecionar "credenciais da API":
 ![Credentials](https://raw.githubusercontent.com/ibm-developer-br/interface-chatbot/master/print/tutorial-chatbot-23.png)
 
 Deixe esta página aberta pois futuramente copiaremos o "Workspace ID","Username" e "Password" ou "Api Key" para deploy da página Web.
